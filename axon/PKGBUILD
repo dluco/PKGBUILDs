@@ -1,6 +1,6 @@
 pkgname=axon
 _gitname=axon
-pkgver=3.1.0.4.g772389a
+pkgver=3.1.0.7.g4f89315
 pkgrel=1
 pkgdesc='A fast and lightweight vte terminal emulator'
 arch=('any')
