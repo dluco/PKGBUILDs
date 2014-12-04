@@ -1,9 +1,9 @@
-pkgname=axon-git
+pkgname=axon
 _gitname=axon
 pkgver=3.1.0.4.g772389a
 pkgrel=1
-pkgdesc='A fast and lightweight terminal emulator built with GTK and VTE'
-arch=('i686' 'x86_64')
+pkgdesc='A fast and lightweight vte terminal emulator'
+arch=('any')
 url='http://github.com/dluco/axon'
 license=('MIT')
 makedepends=('git')
@@ -15,7 +15,8 @@ md5sums=('SKIP')
 
 pkgver() {
   cd "$srcdir/$_gitname"
-  git describe --tags | sed -e 	's:v::' -e 's/-/./g'
+
+  git describe --tags | sed -e 's:v::' -e 's/-/./g'
 }
 
 build() {
