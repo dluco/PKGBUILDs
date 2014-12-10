@@ -1,0 +1,33 @@
+pkgname=clpd
+_gitname=clpd
+pkgver=0.0.0
+pkgrel=1
+pkgdesc='Simple clipboard daemon'
+arch=('any')
+url='http://github.com/dluco/clpd'
+license=('GPL')
+makedepends=('git')
+depends=('gtk2')
+source=("git://github.com/dluco/clpd.git")
+md5sums=('SKIP')
+
+pkgver() {
+  cd "$srcdir/$_gitname"
+
+  git describe --tags | sed -r 's/([^-]*g)/r\l/;s/-/./g'
+}
+
+build() {
+  cd "$srcdir/$_gitname"
+
+  make PREFIX=/usr
+}
+
+package() {
+  cd "$srcdir/$_gitname"
+
+  make PREFIX=/usr DESTDIR="$pkgdir" install
+  install -Dm0644 COPYING "$pkgdir/usr/share/licenses/$_gitname/LICENSE"
+}
+
+# vim: ft=sh syn=sh
